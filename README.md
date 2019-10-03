@@ -1,3 +1,3 @@
 # Horario Escolar
 
-Horario para recordar las materias escolares.
+App para recordar las el horario de las materias escolares.
