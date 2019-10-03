@@ -4,7 +4,11 @@ import 'materia.dart';
 
 
 class DiaClaseWidget extends StatefulWidget {
-  DiaClaseWidget({Key key}) : super(key: key);
+  final Map<String, dynamic> dia;
+  DiaClaseWidget({
+    Key key,
+    @required this.dia,
+  }) : super(key: key);
 
   _DiaClaseWidgetState createState() => _DiaClaseWidgetState();
 }
@@ -12,6 +16,15 @@ class DiaClaseWidget extends StatefulWidget {
 class _DiaClaseWidgetState extends State<DiaClaseWidget> {
   @override
   Widget build(BuildContext context) {
+    final diaActual = widget.dia.keys.toList()[0];
+    
+    final children = <Widget>[];
+    widget.dia[diaActual]['materias'].forEach(
+      (key, value) {
+        children.add(MateriaWidget(materia: { key: value}, color: widget.dia[diaActual]['color']));
+      }
+    );
+
     return Container(
       margin: EdgeInsets.all(25.0),
       child: Column(
@@ -20,7 +33,7 @@ class _DiaClaseWidgetState extends State<DiaClaseWidget> {
           Padding(
             padding: EdgeInsets.only(left: 5.0),
             child: Text(
-            "LUNES",
+            '$diaActual',
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 18.0,
@@ -29,16 +42,8 @@ class _DiaClaseWidgetState extends State<DiaClaseWidget> {
             ),
           ),
           SizedBox(height: 10.0,),
-          Flexible(
-          child: ListView(
-            children: <Widget>[
-              MateriaWidget(),
-              SizedBox(height: 10.0,),
-              MateriaWidget(),
-              SizedBox(height: 10.0,),
-              MateriaWidget(),
-            ],
-          ),
+          Column(
+            children: children
           ),
         ],
       ),
