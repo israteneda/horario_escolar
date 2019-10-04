@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
     },
     'VIERNES': {
       'materias': {
-        'Seguridade Informática': {
+        'Seguridad Informática': {
           'horario': ['09:30', '11:30'],
           'docente': 'Ing. Marcelo Álvarez'
         }

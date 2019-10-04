@@ -103,8 +103,7 @@ Widget contenidoCard(String nombreMateria, String nombreDocente,double tamanoLar
           ),
         ),
       ],
-    ),
-      
+    ),  
   );
 }
 
