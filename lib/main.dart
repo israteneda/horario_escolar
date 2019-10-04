@@ -9,35 +9,62 @@ class MyApp extends StatelessWidget {
   final Map<String, dynamic> horario = {
     'LUNES': {
       'materias': {
-        'Ingeniería de Pruebas': ['07:00', '09:00'],
-        'Inteligencia Artificial I': ['09:30', '11:30'],
+        'Ingeniería de Pruebas': {
+          'horario': ['07:00', '09:00'],
+          'docente': 'Ing. Edison Espinosa'
+         },
+        'Inteligencia Artificial I': {
+          'horario': ['09:30', '11:30'],
+          'docente': 'Ing. José Luis Carrillo'
+        },
       },
       'color': '#2F80ED'
     },
     'MARTES': {
       'materias': {
-        'Seguridad Informática': ['07:00', '09:00'],
-        'Inteligencia Artificial I': ['09:30', '11:30'],
+        'Seguridad Informática': {
+          'horario': ['07:00', '09:00'],
+          'docente': 'Ing. Marcelo Álvarez',
+        },
+        'Inteligencia Artificial I': {
+          'horario': ['09:30', '11:30'],
+          'docente': 'Ing. José Luis Carrillo'
+        },
       },
       'color': '#01BAEF'
     },
     'MIÉRCOLES': {
       'materias': {
-        'Lab. de Prod. Software I': ['07:00', '09:00'],
-        'Ingeniería de Pruebas': ['09:30', '11:30'],
+        'Lab. de Prod. Software I': {
+          'horario': ['07:00', '09:00'],
+          'docente': 'Ing. Diego Velasco',
+        },
+        'Ingeniería de Pruebas': {
+          'horario': ['09:30', '11:30'],
+          'docente': 'Ing. Edison Espinosa',
+        }
       },
       'color': '#0CBABA'
     },
     'JUEVES': {
       'materias': {
-        'Lab. de Prod. Software I': ['07:00', '09:00'],
-        'Plan de Tesis': ['09:30', '11:30'],
+        'Lab. de Prod. Software I': {
+          'horario': ['07:00', '09:00'],
+          'docente': 'Ing. Diego Velasco',
+        },
+        'Plan de Tesis': {
+          'horario': ['09:30', '11:30'],
+          'docente': 'Ing. Lucas Garcés'
+        }
       },
       'color': '#EC9F05'
     },
     'VIERNES': {
       'materias': {
-        'Seguridade Informática': ['09:30', '11:30'],
+        'Seguridade Informática': {
+          'horario': ['09:30', '11:30'],
+          'docente': 'Ing. Marcelo Álvarez'
+        }
       },
       'color': '#9FA4C4'
     },

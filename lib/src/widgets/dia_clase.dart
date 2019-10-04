@@ -16,7 +16,7 @@ class DiaClaseWidget extends StatefulWidget {
 class _DiaClaseWidgetState extends State<DiaClaseWidget> {
   @override
   Widget build(BuildContext context) {
-    final diaActual = widget.dia.keys.toList()[0];
+    final diaActual = widget.dia.keys.first;
     
     final children = <Widget>[];
     widget.dia[diaActual]['materias'].forEach(

@@ -15,8 +15,13 @@ class MateriaWidget extends StatefulWidget {
 class _MateriaWidgetState extends State<MateriaWidget> {
   @override
   Widget build(BuildContext context) {
-    String nombreMateria = widget.materia.keys.toList()[0];
+
     double tamanoLargo = MediaQuery.of(context).size.width / 4;
+    String nombreMateria = widget.materia.keys.toList()[0];
+    String nombreDocente = widget.materia[nombreMateria]['docente'];
+    String horaInicio = widget.materia[nombreMateria]['horario'][0];
+    String horaFinal = widget.materia[nombreMateria]['horario'][1];
+
     return Stack(
       children: <Widget>[
         SizedBox(
@@ -26,7 +31,7 @@ class _MateriaWidgetState extends State<MateriaWidget> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0)
             ),
-            child: contenidoCard(nombreMateria, tamanoLargo),
+            child: contenidoCard(nombreMateria, nombreDocente, tamanoLargo),
             elevation: 5.0,
           ),
         ),
@@ -42,7 +47,7 @@ class _MateriaWidgetState extends State<MateriaWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  '${widget.materia[nombreMateria][0]}',
+                  '$horaInicio',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
@@ -51,7 +56,7 @@ class _MateriaWidgetState extends State<MateriaWidget> {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  '${widget.materia[nombreMateria][1]}',
+                  '$horaFinal',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
@@ -71,20 +76,34 @@ class _MateriaWidgetState extends State<MateriaWidget> {
 
 }
 
-Widget contenidoCard(String nombreMateria, double tamanoLargo) {
+Widget contenidoCard(String nombreMateria, String nombreDocente,double tamanoLargo) {
   return Padding(
     padding: EdgeInsets.only(
-      top: 15.0,
+      top: 30.0,
       left: tamanoLargo + 10.0
     ),
-    child: Text(
-      '$nombreMateria',
-      style: TextStyle(
-          color: Color(0xFF656363),
-          fontWeight: FontWeight.w600,
-          fontSize: 16.0,
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          '$nombreMateria',
+          style: TextStyle(
+              color: Color(0xFF656363),
+              fontWeight: FontWeight.w600,
+              fontSize: 16.0,
+            ),
+          ),
+        SizedBox(height: 10.0,),
+        Text(
+        '$nombreDocente',
+        style: TextStyle(
+            color: Color(0xFF656363),
+            fontWeight: FontWeight.w400,
+            fontSize: 14.0,
+          ),
         ),
-      ),
+      ],
+    ),
       
   );
 }
