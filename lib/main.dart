@@ -6,6 +6,8 @@ void main() => runApp(MyApp());
  
 class MyApp extends StatelessWidget {
 
+  // Todo: splash screen, sqlite, local_notification, tareas.
+
   final Map<String, dynamic> horario = {
     'LUNES': {
       'materias': {
@@ -53,7 +55,7 @@ class MyApp extends StatelessWidget {
           'docente': 'Ing. Diego Velasco',
         },
         'Plan de Tesis': {
-          'horario': ['09:30', '11:30'],
+          'horario': ['09:30', '12:30'],
           'docente': 'Ing. Lucas Garcés'
         }
       },
