@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:horario_escolar/src/paginas/inicio.dart';
 import 'package:horario_escolar/src/paginas/horario.dart';
+import 'package:horario_escolar/src/paginas/tareas.dart';
  
 void main() => runApp(MyApp());
  
@@ -80,7 +81,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (BuildContext context) => InicioPagina(),
-        'horario' : (BuildContext context) => HorarioPagina(horario: horario)
+        'horario' : (BuildContext context) => HorarioPagina(horario: horario),
+        'tareas'  : (BuildContext context) => TareasPagina()
       },
     );
   }

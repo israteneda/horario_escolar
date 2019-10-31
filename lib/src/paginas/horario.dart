@@ -16,11 +16,11 @@ class HorarioPagina extends StatefulWidget {
 class _HorarioPaginaState extends State<HorarioPagina> {
   @override
   Widget build(BuildContext context) {
-    Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Center(
             child: Text(
-              'Horario Escolar',
+              'Horario',
               style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 20.0,

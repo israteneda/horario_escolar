@@ -27,9 +27,22 @@ class _InicioPaginaState extends State<InicioPagina> {
           backgroundColor: Colors.transparent, elevation: 0.0,
         ),
         backgroundColor: Color(0xF5F5F5F5),
-        body: Text(
-          'Bienvenido'
-        ),
+        body: Column(
+          children: <Widget>[
+            Text(
+              'Bienvenido'
+            ),
+            RaisedButton(
+              child: Text('Horario'),
+              onPressed: (){Navigator.pushNamed(context, 'horario');}
+            ),
+            RaisedButton(
+              child: Text('Tareas'),
+              onPressed: (){Navigator.pushNamed(context, 'tareas');}
+            ),
+          ],
+        )
+
       );
   }
 }
