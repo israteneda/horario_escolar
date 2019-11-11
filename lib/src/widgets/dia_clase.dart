@@ -4,10 +4,12 @@ import 'materia.dart';
 
 
 class DiaClaseWidget extends StatefulWidget {
-  final Map<String, dynamic> dia;
+  final Map<String, dynamic> data;
+  final String dia;
   DiaClaseWidget({
     Key key,
     @required this.dia,
+    @required this.data,
   }) : super(key: key);
 
   _DiaClaseWidgetState createState() => _DiaClaseWidgetState();
@@ -16,12 +18,17 @@ class DiaClaseWidget extends StatefulWidget {
 class _DiaClaseWidgetState extends State<DiaClaseWidget> {
   @override
   Widget build(BuildContext context) {
-    final diaActual = widget.dia.keys.first;
-    
+    final diaActual = widget.dia;
     final children = <Widget>[];
-    widget.dia[diaActual]['materias'].forEach(
-      (key, value) {
-        children.add(MateriaWidget(materia: { key: value}, color: widget.dia[diaActual]['color']));
+    widget.data.forEach(
+      (materia, contenido) {
+        contenido['horario'].forEach(
+          (dia, horas){
+            if (dia.toString().toUpperCase() == diaActual){
+              children.add(MateriaWidget(materia: materia, contenido: contenido, dia: dia));
+            }
+          }
+        );
       }
     );
 
@@ -43,7 +50,7 @@ class _DiaClaseWidgetState extends State<DiaClaseWidget> {
           ),
           SizedBox(height: 10.0,),
           Column(
-            children: children
+            children: children,
           ),
         ],
       ),

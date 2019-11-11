@@ -24,12 +24,27 @@ class _TareasPaginaState extends State<TareasPagina> {
               ),
             ),
           ),
+          leading: IconButton(
+            icon:Icon(Icons.arrow_back_ios, color: Colors.grey),
+            onPressed:() => Navigator.pop(context, false),
+          ),
           backgroundColor: Colors.transparent, elevation: 0.0,
         ),
         backgroundColor: Color(0xF5F5F5F5),
-        body: Text(
-          'Tareas'
-        ),
+        body: Container(),
       );
   }
+
+  // Widget _horario(horario){
+  //   final children = <Widget>[];
+  //   widget.tareas.forEach(
+  //     (key, value) {
+  //       children.add(DiaClaseWidget(dia: {key: value}));
+  //       print('$key : $value');
+  //     }
+  //   );
+  //   return ListView(
+  //      children: children
+  //   );
+  // }
 }

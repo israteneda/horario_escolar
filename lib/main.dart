@@ -7,69 +7,47 @@ void main() => runApp(MyApp());
  
 class MyApp extends StatelessWidget {
 
-  // Todo: splash screen, sqlite, local_notification, tareas.
+  // Todo: sqlite, local_notification, tareas.
 
-  final Map<String, dynamic> horario = {
-    'LUNES': {
-      'materias': {
-        'Ingeniería de Pruebas': {
-          'horario': ['07:00', '09:00'],
-          'docente': 'Ing. Edison Espinosa'
-         },
-        'Inteligencia Artificial I': {
-          'horario': ['09:30', '11:30'],
-          'docente': 'Ing. José Luis Carrillo'
+  final Map<String, dynamic> data = {
+    'Ingeniería de Pruebas': {
+      'horario': {
+        'lunes': ['07:00', '09:00', '#2F80ED'],
+        'miércoles': ['09:30', '11:30', '#0CBABA'],
         },
-      },
-      'color': '#2F80ED'
+        'tareas': ['Nada'],
+        'docente': 'Ing. Edison Espinosa',
     },
-    'MARTES': {
-      'materias': {
-        'Seguridad Informática': {
-          'horario': ['07:00', '09:00'],
-          'docente': 'Ing. Marcelo Álvarez',
+    'Inteligencia Artificial I': {
+      'horario': {
+        'lunes': ['09:30', '11:30', '#2F80ED'],
+        'martes': ['09:30', '11:30', '#01BAEF'],
         },
-        'Inteligencia Artificial I': {
-          'horario': ['09:30', '11:30'],
-          'docente': 'Ing. José Luis Carrillo'
-        },
-      },
-      'color': '#01BAEF'
+        'tareas': ['Tomar Apuntes'],
+        'docente': 'Ing. José Luis Carrillo',
     },
-    'MIÉRCOLES': {
-      'materias': {
-        'Lab. de Prod. Software I': {
-          'horario': ['07:00', '09:00'],
-          'docente': 'Ing. Diego Velasco',
+    'Seguridad Informática': {
+      'horario': {
+        'martes': ['07:00', '09:00', '#01BAEF'],
+        'viernes': ['09:30', '11:30', '#9FA4C4'],
         },
-        'Ingeniería de Pruebas': {
-          'horario': ['09:30', '11:30'],
-          'docente': 'Ing. Edison Espinosa',
-        }
-      },
-      'color': '#0CBABA'
+        'tareas': ['Atender a clase'],
+        'docente': 'Ing. Marcelo Álvarez',
     },
-    'JUEVES': {
-      'materias': {
-        'Lab. de Prod. Software I': {
-          'horario': ['07:00', '09:00'],
-          'docente': 'Ing. Diego Velasco',
+    'Lab. de Prod. Software I': {
+      'horario': {
+        'miércoles': ['07:00', '09:00', '#0CBABA'],
+        'jueves': ['07:00', '09:00', '#EC9F05'],
         },
-        'Plan de Tesis': {
-          'horario': ['09:30', '12:30'],
-          'docente': 'Ing. Lucas Garcés'
-        }
-      },
-      'color': '#EC9F05'
+        'tareas': ['Aprender Angular'],
+        'docente': 'Ing. Diego Velasco',
     },
-    'VIERNES': {
-      'materias': {
-        'Seguridad Informática': {
-          'horario': ['09:30', '11:30'],
-          'docente': 'Ing. Marcelo Álvarez'
-        }
-      },
-      'color': '#9FA4C4'
+    'Plan de Tesis': {
+      'horario': {
+        'jueves': ['09:30', '12:30', '#EC9F05'],
+        },
+        'tareas': ['Nada'],
+        'docente': 'Ing. Lucas Garcés',
     },
   };
 
@@ -81,7 +59,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (BuildContext context) => InicioPagina(),
-        'horario' : (BuildContext context) => HorarioPagina(horario: horario),
+        'horario' : (BuildContext context) => HorarioPagina(data: data),
         'tareas'  : (BuildContext context) => TareasPagina()
       },
     );

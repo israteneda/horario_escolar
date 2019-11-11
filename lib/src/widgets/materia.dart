@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class MateriaWidget extends StatefulWidget {
-  final Map<String, dynamic> materia;
-  final String color;
+  final String materia;
+  final Map<String, dynamic> contenido;
+  final String dia;
   MateriaWidget({
     Key key,
     this.materia,
-    this.color
+    this.contenido,
+    this.dia,
   }) : super(key: key);
 
   _MateriaWidgetState createState() => _MateriaWidgetState();
@@ -17,10 +19,11 @@ class _MateriaWidgetState extends State<MateriaWidget> {
   Widget build(BuildContext context) {
 
     double tamanoLargo = MediaQuery.of(context).size.width / 4;
-    String nombreMateria = widget.materia.keys.toList()[0];
-    String nombreDocente = widget.materia[nombreMateria]['docente'];
-    String horaInicio = widget.materia[nombreMateria]['horario'][0];
-    String horaFinal = widget.materia[nombreMateria]['horario'][1];
+    String nombreMateria = widget.materia;
+    String nombreDocente = widget.contenido['docente'];
+    String horaInicio = widget.contenido['horario'][widget.dia][0];
+    String horaFinal = widget.contenido['horario'][widget.dia][1];
+    String color = widget.contenido['horario'][widget.dia][2];
 
     return Stack(
       children: <Widget>[
@@ -42,7 +45,7 @@ class _MateriaWidgetState extends State<MateriaWidget> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0)
             ),
-            color: hexToColor(widget.color),
+            color: hexToColor(color),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
