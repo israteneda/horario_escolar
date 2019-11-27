@@ -1,48 +1,91 @@
 import 'package:flutter/material.dart';
+import 'package:horario_escolar/src/paginas/horario.dart';
+import 'package:horario_escolar/src/paginas/tareas.dart';
 
-class InicioPagina extends StatefulWidget {
-  
-  InicioPagina({
+class Inicio extends StatefulWidget {
+    
+  Inicio({
     Key key
   }) : super(key: key);
 
-  _InicioPaginaState createState() => _InicioPaginaState();
+  _InicioState createState() => _InicioState();
+
 }
 
-class _InicioPaginaState extends State<InicioPagina> {
+class _InicioState extends State<Inicio> {
+
+  // Propiedades
+
+  int pestanaActual = 0;
+  final List<Widget> pantallas = [
+    Horario(),
+    Tareas(),
+  ];
+
+  Widget pantallaActual = Horario();
+
+  final PageStorageBucket bucket = PageStorageBucket();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Center(
-            child: Text(
-              'Horario Escolar',
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 20.0,
-                color: Colors.grey[800],
-              ),
+        
+        backgroundColor: Color(0xF5F5F5F5),
+        
+        body: PageStorage(
+          child: pantallaActual,
+          bucket: bucket,
+        ),
+
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          backgroundColor: Colors.blueAccent,
+          onPressed: (){},
+        ),
+
+        // Posición de FAB
+
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
+        // App Bar inferior
+
+        bottomNavigationBar: BottomAppBar(
+          shape: CircularNotchedRectangle(),
+          child: Container(
+            height: 60,
+            child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  botonNavBar(Horario(), 'Inicio', 0, Icons.home),
+                  botonNavBar(Tareas(), 'Tareas', 1, Icons.work),
+                  SizedBox(width: 40,),
+                  botonNavBar(Horario(), 'Horario', 2, Icons.calendar_today),
+                  botonNavBar(Tareas(), 'Perfil', 3, Icons.person),
+                ],
             ),
           ),
-          backgroundColor: Colors.transparent, elevation: 0.0,
+          
         ),
-        backgroundColor: Color(0xF5F5F5F5),
-        body: Column(
-          children: <Widget>[
-            Text(
-              'Bienvenido'
-            ),
-            RaisedButton(
-              child: Text('Horario'),
-              onPressed: (){Navigator.pushNamed(context, 'horario');}
-            ),
-            RaisedButton(
-              child: Text('Tareas'),
-              onPressed: (){Navigator.pushNamed(context, 'tareas');}
-            ),
-          ],
-        )
 
       );
+  }
+
+  Widget botonNavBar(Widget pantalla, String strPantalla, int intPantalla, IconData icon){
+    return MaterialButton(
+      minWidth: 40,
+      onPressed: (){
+        setState(() {
+          pantallaActual = pantalla;
+          pestanaActual = intPantalla;
+        });
+      },
+      child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Icon(icon, color: pestanaActual == intPantalla ? Colors.blueAccent : Colors.grey,),
+        Text(strPantalla, style: TextStyle(color: pestanaActual == intPantalla ? Colors.blueAccent : Colors.grey,),)
+      ],),
+    );
   }
 }

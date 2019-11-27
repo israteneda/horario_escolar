@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class MateriaWidget extends StatefulWidget {
+class Materia extends StatefulWidget {
   final String materia;
   final Map<String, dynamic> contenido;
   final String dia;
-  MateriaWidget({
+  Materia({
     Key key,
     this.materia,
     this.contenido,
     this.dia,
   }) : super(key: key);
 
-  _MateriaWidgetState createState() => _MateriaWidgetState();
+  _MateriaState createState() => _MateriaState();
 }
 
-class _MateriaWidgetState extends State<MateriaWidget> {
+class _MateriaState extends State<Materia> {
   @override
   Widget build(BuildContext context) {
 

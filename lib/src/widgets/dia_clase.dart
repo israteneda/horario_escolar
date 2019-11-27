@@ -12,20 +12,22 @@ class DiaClaseWidget extends StatefulWidget {
     @required this.data,
   }) : super(key: key);
 
-  _DiaClaseWidgetState createState() => _DiaClaseWidgetState();
+  _DiaClaseState createState() => _DiaClaseState();
 }
 
-class _DiaClaseWidgetState extends State<DiaClaseWidget> {
+class _DiaClaseState extends State<DiaClaseWidget> {
   @override
   Widget build(BuildContext context) {
     final diaActual = widget.dia;
     final children = <Widget>[];
+    Map<String, double> materias = new Map();
     widget.data.forEach(
       (materia, contenido) {
         contenido['horario'].forEach(
           (dia, horas){
             if (dia.toString().toUpperCase() == diaActual){
-              children.add(MateriaWidget(materia: materia, contenido: contenido, dia: dia));
+              materias[materia] = double.parse(horas[0].replaceAll(RegExp(r":"), "."));
+              children.add(Materia(materia: materia, contenido: contenido, dia: dia));
             }
           }
         );

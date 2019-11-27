@@ -1,19 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:horario_escolar/src/widgets/dia_clase.dart';
 
-class HorarioPagina extends StatefulWidget {
+class Horario extends StatefulWidget {
   
-  final Map<String, dynamic> data;
+  final Map<String, dynamic> data = {
+    'Ingeniería de Pruebas': {
+      'horario': {
+        'lunes': ['07:00', '09:00', '#2F80ED'],
+        'miércoles': ['09:30', '11:30', '#0CBABA'],
+        },
+        'tareas': ['Nada'],
+        'docente': 'Ing. Edison Espinosa',
+    },
+    'Inteligencia Artificial I': {
+      'horario': {
+        'lunes': ['09:30', '11:30', '#2F80ED'],
+        'martes': ['09:30', '11:30', '#01BAEF'],
+        },
+        'tareas': ['Tomar Apuntes'],
+        'docente': 'Ing. José Luis Carrillo',
+    },
+    'Seguridad Informática': {
+      'horario': {
+        'martes': ['07:00', '09:00', '#01BAEF'],
+        'viernes': ['09:30', '11:30', '#9FA4C4'],
+        },
+        'tareas': ['Atender a clase'],
+        'docente': 'Ing. Marcelo Álvarez',
+    },
+    'Lab. de Prod. Software I': {
+      'horario': {
+        'miércoles': ['07:00', '09:00', '#0CBABA'],
+        'jueves': ['07:00', '09:00', '#EC9F05'],
+        },
+        'tareas': ['Aprender Angular'],
+        'docente': 'Ing. Diego Velasco',
+    },
+    'Plan de Tesis': {
+      'horario': {
+        'jueves': ['09:30', '12:30', '#EC9F05'],
+        },
+        'tareas': ['Nada'],
+        'docente': 'Ing. Lucas Garcés',
+    },
+  };
   
-  HorarioPagina({
+  Horario({
     Key key,
-    @required this.data
   }) : super(key: key);
 
-  _HorarioPaginaState createState() => _HorarioPaginaState();
+  _HorarioState createState() => _HorarioState();
 }
 
-class _HorarioPaginaState extends State<HorarioPagina> {
+class _HorarioState extends State<Horario> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,10 +66,6 @@ class _HorarioPaginaState extends State<HorarioPagina> {
                 color: Colors.grey[800],
               ),
             ),
-          ),
-          leading: IconButton(
-            icon:Icon(Icons.arrow_back_ios, color: Colors.grey),
-            onPressed:() => Navigator.pop(context, false),
           ),
           backgroundColor: Colors.transparent, elevation: 0.0,
         ),

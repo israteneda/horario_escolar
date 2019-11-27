@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class TareasPagina extends StatefulWidget {
+class Tareas extends StatefulWidget {
   
-  TareasPagina({
+  Tareas({
     Key key
   }) : super(key: key);
 
-  _TareasPaginaState createState() => _TareasPaginaState();
+  _TareasState createState() => _TareasState();
 }
 
-class _TareasPaginaState extends State<TareasPagina> {
+class _TareasState extends State<Tareas> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,10 +23,6 @@ class _TareasPaginaState extends State<TareasPagina> {
                 color: Colors.grey[800],
               ),
             ),
-          ),
-          leading: IconButton(
-            icon:Icon(Icons.arrow_back_ios, color: Colors.grey),
-            onPressed:() => Navigator.pop(context, false),
           ),
           backgroundColor: Colors.transparent, elevation: 0.0,
         ),
